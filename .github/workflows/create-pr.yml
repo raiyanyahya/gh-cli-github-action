@@ -4,7 +4,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
 env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   build-tag-push:
     runs-on: ubuntu-latest
@@ -15,6 +15,6 @@ jobs:
       - name: edit the dummy text file
         run: echo "This is a pr" >> dummy.txt
       - name: github auth
-        run: gh auth login --with-token
+        run: gh auth login --with-token $GIT_TOKEN
       - name: create a pr using the github cli
         run: gh pr create --title "This is a dummy pr" --body "PR is working"

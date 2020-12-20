@@ -20,5 +20,7 @@ jobs:
         run: echo "This is a pr" >> dummy.txt
       - name: commit files to the branch
         run: git add . && git commit -m "test"
+      - name: push branch
+        run: git push -u origin test
       - name: use the github cli to create a pull request
         run: gh pr create --title "This is a dummy pr" --body "PR is working" --head test

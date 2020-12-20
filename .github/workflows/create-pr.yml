@@ -15,4 +15,4 @@ jobs:
       - name: edit the dummy text file
         run: echo "This is a pr" >> dummy.txt
       - name: create a pr using the github cli
-        run: gh pr create --title "This is a dummy pr" --body "PR is working"
+        run: gh pr create --title "This is a dummy pr" --body "PR is working" -H

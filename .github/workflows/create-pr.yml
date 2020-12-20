@@ -14,5 +14,7 @@ jobs:
           fetch-depth: 0
       - name: edit the dummy text file
         run: echo "This is a pr" >> dummy.txt
+      - name: checkout a branch
+        run: git checkout -b test
       - name: create a pr using the github cli
-        run: gh pr create --title "This is a dummy pr" --body "PR is working" -H test
+        run: gh pr create --title "This is a dummy pr" --body "PR is working"

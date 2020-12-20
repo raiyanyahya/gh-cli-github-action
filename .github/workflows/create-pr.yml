@@ -12,7 +12,9 @@ jobs:
           fetch-depth: 0
       - name: edit the dummy text file
         run: echo "This is a pr" >> dummy.txt
+      - name:  get token
+        run: export GH_TOKEN=${{ secrets.GITHUB_TOKEN }}
       - name: github auth
-        run: gh auth login --with-token "${{secrets.GITHUB_TOKEN}}"
+        run: gh auth login --with-token $GH_TOKEN
       - name: create a pr using the github cli
         run: gh pr create --title "This is a dummy pr" --body "PR is working"

@@ -14,11 +14,11 @@ jobs:
         run: |
             git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
             git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
-      - name: edit the dummy text file
-        run: echo "This is a pr" >> dummy.txt
       - name: checkout a branch
         run: git checkout -b test
+      - name: edit the dummy text file
+        run: echo "This is a pr" >> dummy.txt
       - name: commit files to the branch
-        run: git add . && git commit -m "test" && gh pr create --title "This is a dummy pr" --body "PR is working" --head test
+        run: git add . && git commit -m "test"
       - name: use the github cli to create a pull request
         run: gh pr create --title "This is a dummy pr" --body "PR is working" --head test

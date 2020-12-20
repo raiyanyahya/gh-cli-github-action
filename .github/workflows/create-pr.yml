@@ -17,4 +17,4 @@ jobs:
       - name: checkout a branch
         run: git checkout -b test
       - name: create a pr using the github cli
-        run: gh pr create --title "This is a dummy pr" --body "PR is working" --head test
+        run: git add . && git commit -m "test" && git push origin test
